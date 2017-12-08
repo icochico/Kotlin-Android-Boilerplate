@@ -30,7 +30,7 @@ class ListActivity : ViewModelActivity<ListViewModel, ActivityListBinding>() {
     @Inject
     lateinit var dividerDecorator: SimpleDividerItemDecoration
 
-    val disposables: CompositeDisposable = CompositeDisposable()
+    private val disposables: CompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,7 +103,7 @@ class ListActivity : ViewModelActivity<ListViewModel, ActivityListBinding>() {
 
     private fun updateEmptyView() {
         val thereIsNoItems = adapter.itemCount == 0
-        binding.emptyView.root.isVisible = thereIsNoItems
+        binding.emptyView?.root?.isVisible = thereIsNoItems
     }
 
     private fun errorNoNetwork() {
